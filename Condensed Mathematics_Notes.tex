@@ -87,10 +87,12 @@
 
 
 \begin{document}
-\title{\vspace{-6em}\Large{Condensed mathematics I}}
+\title{\vspace{-6em}\Large{Condensed mathematics}}
 \date{}
 \author{何力}
 \maketitle	
+\tableofcontents
+\newpage
 \section{Condensed Sets}
 \dfn 
 Let $\mathcal{C}$ be a category. A Grothendieck topology on $\mathcal{C}$ consists of: for each object $X$ in $\mathcal{C}$, there is a collection $\text{Cov}(X)$ of sets $\{X_i\to X\}_{i\in I}$, satisfying the following three axioms:
@@ -1802,7 +1804,7 @@ $$R\underline{\text{Hom}}(\mathbb{T},\mathbb{R})\rightarrow R\underline{\text{Ho
 By Theorem \ref{RHom=0}, we know $R\underline{\text{Hom}}(\mathbb{T},\mathbb{R})=0$, hence $R\underline{\text{Hom}}(\mathbb{R},\mathbb{R})\cong R\underline{\text{Hom}}(\mathbb{Z},\mathbb{R})\cong \mathbb{R}.$
 \qed
 
-\cor 
+\cor \label{concentrated at 0,1}
 For any locally compact abelian groups $A$ and $B$, $R\underline{\text{Hom}}(A,B)$ is centered at 0 and 1, i.e. $\underline{\text{Ext}}^i(A,B)=0,\ \forall i\geq 2.$
 \pf 
 By the structure theorem of locally compact abelian groups, it suffices to prove for $A$ and $B$ being compact groups and discrete groups.
@@ -1850,6 +1852,99 @@ By the structure theorem of locally compact abelian groups, it suffices to prove
 \end{itemize}
 \qed
 
+
+
+
+
+
+
+
+
+
+
+\newpage
+\section*{Appendix: Resolutions}
+\dfn 
+Let $\mathcal{A}$ be a Grothendieck abelian category and  $X\in D(\mathcal{A})$ is a complex.
+\begin{itemize}
+	\item [(i)]
+	Let $n\in\mathbb{Z}_{\geq 0}$. $X$ is $n$-pseudocoherent if
+	\begin{itemize}
+		\item [(a)] $X$ is bounded above, i.e. for $i\gg 0$, $H^i(X)=0.$
+		\item [(b)]For $i=0,1,\cdots,n-1$, $\text{Ext}^i(X,-):\mathcal{A}\rightarrow \text{Ab}$ commutes with filtered colimits.
+		\item [(c)] $\text{Ext}^n(X,-):\mathcal{A}\rightarrow \text{Ab}$ commutes with filtered union.
+	\end{itemize}
+\item [(ii)]
+$X$ is pseudocoherent if
+\begin{itemize}
+	\item [(a)] $X$ is bounded above, i.e. for $i\gg 0$, $H^i(X)=0.$
+	\item [(b)] For any $i\geq 0$, $\text{Ext}^i(X,-):\mathcal{A}\rightarrow \text{Ab}$ commutes with filtered colimits.
+\end{itemize}
+$X$ is pseudocoherent iff $\forall n$, $X$ is $n$-pseudocoherent.
+\item [(iii)]
+Let $n\in\mathbb{Z}_{\geq 0}$ and $\mathcal{A}_0$ is a family of compact projective objects of $\mathcal{A}$. $X$ is $n, \mathcal{A}_0$-pseudocoherent if:\\
+there exists a bounded cochain complex $P^\bullet$, and a map $\varphi:P^\bullet\rightarrow X$, s.t. each $P^i$ is the finite direct sum of elements of $\mathcal{A}_0$, and if $i>-n$, $H^i(\varphi)$ is an isomorphism; if $i=-n$, $H^i(\varphi)$ is a surjection.
+\item [(iv)]
+Let $\mathcal{A}_0$ be a family of compact projective objects of $\mathcal{A}$. $X$ is $\mathcal{A}_0$-pseudocoherent if:\\
+there exists a bounded cochain complex $P^\bullet$, and a map $\varphi:P^\bullet\rightarrow X$, which is a quasi-isomorphism, s.t. each $P^i$ is the finite direct sum of elements of $\mathcal{A}_0$.
+~\\
+$X$ is $\mathcal{A}_0$-pseudocoherent iff $\forall n$, $X$ is $n,\mathcal{A}_0$-pseudocoherent.
+\end{itemize}
+
+
+\dfn 
+Let $\mathcal{A}$ be a Grothendieck abelian category and $A\in\mathcal{A}$. $A$ is finitely generated if $A$ is 0-pseudocoherent. 
+
+
+
+
+\lem 
+Let $\mathcal{A}$ be a Grothendieck abelian category and $A\in\mathcal{A}$. Consider:
+\begin{itemize}
+	\item [(i)]
+	$A$ is finitely generated.
+	\item [(ii)] $A$ is the quotient of a compact object.
+	\item [(iii)] If there is a surjection $\bigoplus_{i\in I} B_i\twoheadrightarrow A$, then there exists a finite subset $J\subseteq I$, s.t. $\bigoplus_{i\in J} B_i\twoheadrightarrow A.$
+	\item [(iv)] Let $B$ be the filtered colimit of $B_i$, then $\underrightarrow{\text{lim}}\ \text{Hom}(A, B_i)\hookrightarrow \text{Hom}(A,B).$
+\end{itemize}
+Then (i)$\iff$(ii)$\iff$(iii)$\implies$(iv).
+\pf 
+(ii)$\implies$ (i). Assume $C\twoheadrightarrow A$ and $C$ is compact. Take any filtered union $B=\bigcup B_i$. Since $B_i\hookrightarrow B$, then $\text{Hom}(A,B_i)\hookrightarrow \text{Hom}(A,B)$, thus $\underrightarrow{\text{lim}}\ \text{Hom}(A,B_i)\hookrightarrow \underrightarrow{\text{lim}}\ \text{Hom}(A,B)$. \\
+In order to show this is a surjection, we take any map $A\rightarrow B$, since $C$ is compact, $C\rightarrow A\rightarrow B$ factors through some $B_i$, hence $A\rightarrow B$ factors through $B_i$, which implies
+$$
+\underrightarrow{\text{lim}}\ \text{Hom}(A,B_i)\twoheadrightarrow \underrightarrow{\text{lim}}\ \text{Hom}(A,B).
+$$
+Then $\underrightarrow{\text{lim}}\ \text{Hom}(A,B_i)\cong  \underrightarrow{\text{lim}}\ \text{Hom}(A,B)$, i.e. $A$ is finitely generated.\\
+(i)$\implies$ (iii). We write 
+$$A=\text{Im}(\bigoplus_{i\in I}B_i\rightarrow A)=\bigcup_{J\subset I, J\text{ finite}} \text{Im}(\bigoplus_{i\in J}B_i\rightarrow A),$$
+then
+$$
+\text{Hom}(A,A)=\underrightarrow{\text{lim}}\ \text{Hom}(A, \text{Im}(\bigoplus_{i\in J}B_i\rightarrow A)),
+$$
+hence $\text{id}_A$ factors through $ \text{Im}(\bigoplus_{i\in J}B_i\rightarrow A)$ for some $J$, thus $\bigoplus_{i\in J}B_i\twoheadrightarrow A.$\\
+(iii)$\implies$ (ii).
+We can write $A$ as the quotient of the direct sum of a family of compact objects, i.e $\bigoplus_{i\in I} B_i\twoheadrightarrow A$, $B_i$ are compact. By (iii), $\exists$ finite subset $J\subset I$, s.t. $\bigoplus_{i\in J} B_i\twoheadrightarrow A$. And the finite direct sum of compact objects is still compact, hence $A$ is the quotient of a compact object.\\
+(ii)$\implies$ (iv). Assume $C\twoheadrightarrow A$ with $C $ compact and $B=\underrightarrow{\text{lim}}\  B_i$. Then we have the following diagram
+\begin{equation*}
+\xymatrix{
+	\text{Hom}(A,B) \ar@{^{(}->}[r]
+\ar[d] & \text{Hom}(C,B) \ar@{=}[d] \\
+\underrightarrow{\text{lim}}\ \text{Hom}(A,B_i)  \ar@{^{(}->}[r]
+&  \text{Hom}(C,B)   
+}
+\end{equation*}
+which gives $	\text{Hom}(A,B)\hookrightarrow \underrightarrow{\text{lim}}\ \text{Hom}(A,B_i) .$
+\qed
+
+
+
+
+
+
+
+
+
+
 \newpage
 \section{Solid Abelian Groups}
 \dfn 
@@ -1869,13 +1964,15 @@ $
 $
 
 \prop 
-For $S\in\text{ProFin}$, there exists some set $I$, s.t. $C(S,\mathbb{Z})\cong \mathbb{Z}^{\oplus I}$, i.e. $C(S,\mathbb{Z})$ is a free abelian group.
-\rem
 \begin{itemize}
-	\item [(i)]From the above proposition, we have
+	\item [(i)]For $S\in\text{ProFin}$, there exists some set $I$, s.t. $C(S,\mathbb{Z})\cong \mathbb{Z}^{\oplus I}$, i.e. $C(S,\mathbb{Z})$ is a free abelian group.
+	\item [(ii)]We have
 	$$\mathbb{Z}[S]^{\blacksquare}=\underline{\text{Hom}}(C(S,\mathbb{Z}),\mathbb{Z})=\underline{\text{Hom}}(\mathbb{Z}^{\oplus I},\mathbb{Z})=\mathbb{Z}^I.$$
-	\item [(ii)]
 \end{itemize}
+
+
+
+
 
 \dfn 
 A condensed abelian group $X\in\text{Cond(Ab)}$ is solid, if for any $S\in\text{ProFin}$, one has
@@ -1943,8 +2040,48 @@ Then:
 		\item [-]	The above functor $F$ has a left derived functor, which is the left adjoint of $D_F(\mathcal{A})\hookrightarrow D(\mathcal{A}).$
 	\end{itemize}
 \end{itemize}
+\pf 
+$\mathcal{A}_F$ is stable under limits: \\
+$
+\text{Hom}(FX,\text{lim}\ Y_i)\cong \text{lim}\ \text{Hom}(FX, Y_i)\cong \text{lim}\ \text{Hom}(X, Y_i)\cong \text{Hom}(X,\text{lim}\ Y_i).
+$\\
+$\mathcal{A}_F$ is stable under colimits: \\
+It suffices to show $\mathcal{A}_F$ is stable under cokernels and direct sums.\\
+For any map $f: Y\rightarrow Z$ in $\mathcal{A}_F$. We can find a surjection $\bigoplus_{i\in I} P_i\twoheadrightarrow Z$, which factors through $\bigoplus_{i\in I} F(P_i)$, hence $\bigoplus_{i\in I} F(P_i)\twoheadrightarrow Z$. Assume the pullback diagram:
+\begin{equation*}
+\xymatrix
+{
+X\ar[r]^(.29)g\ar[d] &\bigoplus_{i\in I} F(P_i)\ar@{->>}[d]\ar[r]&\text{coker}(g)\\
+Y\ar[r]^f& Z\ar[r]&\text{coker}(f)	
+} 
+\end{equation*}
+By the pullback we know $X\twoheadrightarrow Y$. With this, one can show $\text{coker}(g)=\text{coker}(f)$. Hence, we may replace $Z$ by $\bigoplus_{i\in I} F(P_i)$. With the same reason, one can also replace $Y$ by the object of the form $\bigoplus_{j\in J} F(Q_j)$. Therefore, we assume $f:\bigoplus_{j\in J} F(Q_j)\rightarrow \bigoplus_{i\in I} F(P_i).$ We already know $\text{ker}(f)\in\mathcal{A}_F$. From the following lemma $\ref{equivalence}$, $\text{coker}(f)\in\mathcal{A}_F$. Thus, $\mathcal{A}_F$ is stable under cokernels.\\
+Moreover, the objects of $\mathcal{A}_F$ are precisely the cokernels of maps $f: Y\rightarrow Z$ between objects $Y,Z\in\mathcal{A}$ that are direct sums of objects in the image of $F$. \\
+Hence by
+$$
+\bigoplus_{i\in I} \text{coker}(Y_i\rightarrow Z_i)\cong 
+\text{coker}(\bigoplus_{i\in I}Y_i\rightarrow \bigoplus_{i\in I}Z_i),
+$$
+we know $\mathcal{A}_F$ is stable under direct sums.\\
+Thus, $\mathcal{A}_F$ is stable under colimits.\\
+Now assume $0\rightarrow X\rightarrow Y\rightarrow Z\rightarrow 0$ is exact with $X, Z\in\mathcal{A}_F$. Then $X, Z$ can be written as $\text{coker}(A_1\rightarrow A_2)$ and $\text{coker}(B_1\rightarrow B_2)$, where $A_1,A_2,B_1,B_2$ are the direct sums of objects in the image of $F$. We form the diagram
+$$
+\begin{tikzcd}
+0 \arrow[r] & A_1 \arrow[d] \arrow[r]                    & A_1\oplus B_1 \arrow[d] \arrow[r] & B_1 \arrow[d] \arrow[r]                    & 0 \\
+0 \arrow[r] & A_2 \arrow[r] \arrow[d, two heads]         & A_2\oplus B_2 \arrow[r] \arrow[d] & B_2 \arrow[r] \arrow[d, two heads]         & 0 \\
+0 \arrow[r] & \text{coker}(A_1\rightarrow A_2) \arrow[r] & Y \arrow[r]                       & \text{coker}(B_1\rightarrow B_2) \arrow[r] & 0
+\end{tikzcd}
+$$
+Then the extension $Y=\text{coker}(A_1\oplus B_1\rightarrow A_2\oplus B_2)\in\mathcal{A}_F$.
 
-\lem We take the above lemma's notation.
+
+
+
+
+
+\newpage
+\lem \label{equivalence}
+We take the above lemma's notation.
 \begin{itemize}
 	\item [(i)] For any $C$ with the form $\bigoplus_{i\in I} F(X_i),  X_i\in\mathcal{A}_0$, one has
 	$$
@@ -2022,8 +2159,126 @@ $$
 
 
 
+\prop For an extremally disconnected space $S\in \text{ExDisc}$ and a chain complex 
+$$
+C: \cdots \rightarrow C_1\rightarrow C_0\rightarrow 0,
+$$
+where each $C_i=\bigoplus_{j\in I_i} \mathbb{Z}^{I_{i,j}}$, we have
+$$
+R\underline{\text{Hom}}(\mathbb{Z}[S]^\blacksquare,C)\cong R\underline{\text{Hom}}(\mathbb{Z}[S],C).
+$$
+\pf 
+Case 1. $C$ is concentrated in degree 0, i.e. $C=\bigoplus_{j\in J}\mathbb{Z}^{I_j}.$ Since $\mathbb{Z}[S]$ is compact projective, we have
+\begin{align*}
+R\underline{\text{Hom}}(\mathbb{Z}[S],C)
+&=R\underline{\text{Hom}}(\mathbb{Z}[S],\bigoplus_{j\in J}\mathbb{Z}^{I_j})\\
+&=\bigoplus_{j\in J} R\underline{\text{Hom}}(\mathbb{Z}[S],\mathbb{Z}^{I_j})\\
+&=\bigoplus_{j\in J}R\underline{\text{Hom}}(\mathbb{Z}[S],\mathbb{Z})^{I_j}\\
+&=\bigoplus_{j\in J}C(S,\mathbb{Z})^{I_j}\\
+&=\bigoplus_{j\in J}(\mathbb{Z}^{\oplus K})^{I_j}.
+\end{align*}
+It suffices to show:
+$$
+R\underline{\text{Hom}}(\mathbb{Z}[S]^\blacksquare,C)\cong\bigoplus_{j\in J}(\mathbb{Z}^{\oplus K})^{I_j}.
+$$
+We know $\mathbb{Z}[S]^\blacksquare=R\underline{\text{Hom}}(C(S,\mathbb{Z}),\mathbb{Z})=\mathbb{Z}^K$. Then it suffices to show:
+$$
+R\underline{\text{Hom}}(\mathbb{Z}^K,\bigoplus_{j\in J}\mathbb{Z}^{I_j})\cong\bigoplus_{j\in J}(\mathbb{Z}^{\oplus K})^{I_j}.
+$$
+Consider the short exact sequence: $0\rightarrow \mathbb{Z}^K\rightarrow \mathbb{R}^K\rightarrow \mathbb{T}^K\rightarrow 0.$ Since $\mathbb{Z}$ and $\mathbb{T}$ are pseudocoherent, $\mathbb{R}$ is pseudocoherent. Then
+$$
+R\underline{\text{Hom}}(\mathbb{R},\bigoplus_{j\in J}\mathbb{Z}^{I_j})\cong\bigoplus_{j\in J}R\underline{\text{Hom}}(\mathbb{R},\mathbb{Z}^{I_j})
+\cong\bigoplus_{j\in J}R\underline{\text{Hom}}(\mathbb{R},\mathbb{Z})^{I_j}\cong 0.
+$$
+From this, we can get:
+$$
+R\underline{\text{Hom}}(\mathbb{R}^K,\bigoplus_{j\in J}\mathbb{Z}^{I_j})
+\cong R\underline{\text{Hom}}_\mathbb{R} (\mathbb{R}^K,R\underline{\text{Hom}}(\mathbb{R},\bigoplus_{j\in J}\mathbb{Z}^{I_j}))\cong 0.
+$$
+And because $\mathbb{T}^K$ is pseudocoherent, we have:
+$$
+R\underline{\text{Hom}}(\mathbb{T}^K,\bigoplus_{j\in J}\mathbb{Z}^{I_j})
+\cong \bigoplus_{j\in J} R\underline{\text{Hom}}(\mathbb{T}^K,\mathbb{Z})^{I_j}\cong 
+\bigoplus_{j\in J} (\mathbb{Z}^{\oplus K})^{I_j}[-1].
+$$
+Therefore, we have:
+$$
+R\underline{\text{Hom}}(\mathbb{Z}^K,\bigoplus_{j\in J}\mathbb{Z}^{I_j})
+\cong\bigoplus_{j\in J} (\mathbb{Z}^{\oplus K})^{I_j}.
+$$
+Case 2. $C$ is bounded. It is obvious from case 1.\\
+Case 3. For the general complex $C:\cdots \rightarrow C_1\rightarrow C_0\rightarrow 0.$ Consider the short exact sequence:
+$$
+0\rightarrow C_{\leq n}\rightarrow C\rightarrow C_{>n}\rightarrow 0.
+$$
+It suffices to show: $R\underline{\text{Hom}}(\mathbb{Z}[S]^\blacksquare,C_{>n})$ and $R\underline{\text{Hom}}(\mathbb{Z}[S],C_{>n})$ are concentrated at degree $\geq n$. This is because for any $n$, the cofiber of 
+$$
+R\underline{\text{Hom}}(\mathbb{Z}[S]^\blacksquare,C)\rightarrow R\underline{\text{Hom}}(\mathbb{Z}[S],C).
+$$
+is concentrated at $\geq n$, hence the cofiber is 0.\\
+For $R\underline{\text{Hom}}(\mathbb{Z}[S],C_{>n})$, since $\mathbb{Z}[S] $ projective, $R\underline{\text{Hom}}(\mathbb{Z}[S],C_{>n})$ is concentrated at $\geq n.$\\
+Hence, we need to prove $R\underline{\text{Hom}}(\mathbb{Z}[S]^\blacksquare,C_{>n})=
+R\underline{\text{Hom}}(\mathbb{Z}^K,C_{>n}) $ is concentrated at $\geq n$, which is equivalent to prove $R\underline{\text{Hom}}(\mathbb{Z}^K,C)$ is concentrated at $\geq -1$.\\
+Claim 1: For any $K$, $R\underline{\text{Hom}}(\mathbb{T}^K,C)$ is concentrated at $\geq -2$.\\
+Claim 2: For any $K$, $R\underline{\text{Hom}}(\mathbb{R}^K,C)=0.$ \\
+This is because we have $R\underline{\text{Hom}}(\mathbb{R}^K,C)=\text{colim}\ R\underline{\text{Hom}}(\mathbb{R}^K,C_{\leq n})$, and 
+$$
+R\underline{\text{Hom}}(\mathbb{R}^K,C_{\leq n})=
+R\underline{\text{Hom}}_\mathbb{R}(\mathbb{R}^K,R\text{Hom}_{\mathbb{R}}(\mathbb{R},C_{\leq n}))=0.
+$$
+Now, from these two claims, $R\underline{\text{Hom}}(\mathbb{R}^K,C)=0$ and $R\underline{\text{Hom}}(\mathbb{T}^K,C)$ is concentrated at degree $\geq -2$, we get $R\underline{\text{Hom}}(\mathbb{Z}^K,C)=R\underline{\text{Hom}}(\mathbb{T}^K,C)[1]$ is concentrated at degree $\geq -1$.\\
+Hence, it suffices to prove Claim 1.\\
+We denote $C_{\mathbb{R},i}=\bigoplus_{J_i}\mathbb{R}^{I_{i,j}}$, $C_{\mathbb{T},i}=\bigoplus_{J_i}\mathbb{T}^{I_{i,j}}$, and form complexes
+$$
+C_\mathbb{R}:\cdots \rightarrow C_{\mathbb{R},i}\rightarrow\cdots\rightarrow C_{\mathbb{R},1}\rightarrow C_{\mathbb{R},0}\rightarrow 0
+$$
+and
+$$
+C_\mathbb{T}:\cdots \rightarrow C_{\mathbb{T},i}\rightarrow\cdots\rightarrow C_{\mathbb{T},1}\rightarrow C_{\mathbb{T},0}\rightarrow 0.
+$$
+There is an exact sequence
+$0\rightarrow C\rightarrow C_{\mathbb{R}}\rightarrow C_{\mathbb{T}}\rightarrow 0$.\\
+Therefore, we can reduce to prove the following claim.\\
+Claim: $R\underline{\text{Hom}}(\mathbb{T}^K,C_\mathbb{R})$ and $R\underline{\text{Hom}}(\mathbb{T}^K,C_\mathbb{T})$ are concentrated at $\geq -1$.\\
+We know $R\underline{\text{Hom}}(\mathbb{T}^K,C_\mathbb{R})=R\text{lim}\ R\underline{\text{Hom}}(\mathbb{T}^K,\tau_{<n} C_\mathbb{R})$, where $\tau_{<n} C_\mathbb{R}$ is 
+$$
+0\rightarrow \text{ker}(C_{\mathbb{R},n}\rightarrow C_{\mathbb{R},n-1})\rightarrow C_{\mathbb{R},n}\rightarrow \cdots\rightarrow C_{\mathbb{R},0}\rightarrow 0,
+$$
+and 
+$R\underline{\text{Hom}}(\mathbb{T}^K,C_\mathbb{T})=R\text{lim}\ R\underline{\text{Hom}}(\mathbb{T}^K,\tau_{<n} C_\mathbb{T})$, where $\tau_{<n} C_\mathbb{T}$ is 
+$$
+0\rightarrow \text{ker}(C_{\mathbb{T},n}\rightarrow C_{\mathbb{T},n-1})\rightarrow C_{\mathbb{T},n}\rightarrow \cdots\rightarrow C_{\mathbb{T},0}\rightarrow 0.
+$$
+Let $M_\mathbb{R}=\text{ker}(\bigoplus_{j\in J} \mathbb{R}^{I_j}\rightarrow \bigoplus_{j\in J^\prime} \mathbb{R}^{I_j^\prime })$ and $M_\mathbb{T}=\text{ker}(\bigoplus_{j\in J} \mathbb{T}^{I_j}\rightarrow \bigoplus_{j\in J^\prime} \mathbb{T}^{I_j^\prime })$. Because $C_{\mathbb{R},i}=\text{ker}(C_{\mathbb{R},i}\rightarrow 0)$ and $C_{\mathbb{T},i}=\text{ker}(C_{\mathbb{T},i}\rightarrow 0)$ also have the form of $M_\mathbb{R}$ and $M_\mathbb{T}$, it suffices to show 
+$R\underline{\text{Hom}}(\mathbb{T}^K,M_\mathbb{R})$ and $R\underline{\text{Hom}}(\mathbb{T}^K,M_\mathbb{T})$ are concentrated at degree $\geq -1$.\\
+Since $\mathbb{T}^K$ is pseudocoherent, $R\underline{\text{Hom}}(\mathbb{T}^K,-)$ commutes with filtered colimits, hence we can assume $J$ is finite. Then assume
+$$
+M_\mathbb{R}=\text{ker}(\mathbb{R}^{I}\rightarrow \bigoplus_{j\in J^\prime} \mathbb{R}^{I_j^\prime }),\ M_\mathbb{T}=\text{ker}(\mathbb{T}^{I}\rightarrow \bigoplus_{j\in J^\prime} \mathbb{T}^{I_j^\prime }).
+$$
+Besides, we can also assume $J^\prime$ is finite. Hence let
+$$
+M_\mathbb{R}=\text{ker}(\mathbb{R}^{I}\rightarrow \mathbb{R}^{I^\prime }),\ M_\mathbb{T}=\text{ker}(\mathbb{T}^{I}\rightarrow \mathbb{T}^{I^\prime }).
+$$
+Now, as a topological group, $M_\mathbb{T}=\text{ker}(\mathbb{T}^{I}\rightarrow \mathbb{T}^{I^\prime })$ is compact, and $\mathbb{T}^K$ is compact, by Corollary $\ref{concentrated at 0,1}$, the cohomology of $R\underline{\text{Hom}}(\mathbb{T}^K,M_\mathbb{T})$ is concentrated at 0 and 1, hence its homology is concentrated at $\geq -1$.\\
+Claim: $M_\mathbb{R}$ is a direct summand of $\mathbb{R}^I$.\\
+From this claim, by $R\underline{\text{Hom}}(\mathbb{T}^K,\mathbb{R}^I)=R\underline{\text{Hom}}(\mathbb{T}^K,\mathbb{R})^I=0$, we have $R\underline{\text{Hom}}(\mathbb{T}^K,M_\mathbb{R})=0.$\\
+Then, it suffices to prove the above claim. This is because, for $\mathbb{R}$-linear map $\mathbb{R}^{\oplus I^\prime}\rightarrow \mathbb{R}^{\oplus I}$ is the composition of a split surjection and a  split injection. Then by taking the duality $\underline{\text{Hom}}(-,\mathbb{R})$, the dual map $\mathbb{R}^I\rightarrow \mathbb{R}^{I^\prime}$ is split.
+\qed
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
 \dfn 
 \begin{itemize}
 	\item [(i)]For $M, N\in\text{Solid}$, define $M\otimes^\blacksquare N:=(M\otimes N)^\blacksquare.$
@@ -2121,7 +2376,7 @@ $$
 	\item [(i)] $\mathbb{R}^{L\blacksquare}=0.$
 	\item [(ii)] $\mathbb{Z}^I\otimes^{L\blacksquare} \mathbb{Z}^J=\mathbb{Z}^{I\times J}.$
 	\item [(iii)] $\mathbb{Z}_p\otimes^{L\blacksquare}\mathbb{Z}_p=\mathbb{Z}_p.$
-	\item [(iv)]$\mathbb{Z}_p\otimes^{L\blacksquare}\mathbb{Z}_l=\mathbb{Z}_p.\ (p\neq l)$
+	\item [(iv)]$\mathbb{Z}_p\otimes^{L\blacksquare}\mathbb{Z}_\ell=0.\ (p\neq \ell)$
 \end{itemize}
 \pf 
 \begin{itemize}
@@ -2161,9 +2416,31 @@ $$
 	\mathbb{Z}^I\otimes^{L\blacksquare} \mathbb{Z}^J=\mathbb{Z}[S]^\blacksquare\otimes^{L\blacksquare}\mathbb{Z}[T]^\blacksquare=(\mathbb{Z}[S]\otimes^{L}\mathbb{Z}[T])^{L\blacksquare}=\mathbb{Z}[S\times T]^{L\blacksquare}=\mathbb{Z}^{I\times J}.
 	$$
 	\item [(iii)]
+	We write $\mathbb{Z}_p=\mathbb{Z}[[x]]/(x-p)$, then
+	\begin{align*}
+		\mathbb{Z}_p\otimes^{L\blacksquare}\mathbb{Z}_p
+	&=\mathbb{Z}[[x]]/(x-p)\otimes^{L\blacksquare}\mathbb{Z}[[y]]/(y-p)\\
+	&=\mathbb{Z}[[x,y]]/(x-p,y-p)\\
+	&=\mathbb{Z}[[x,y]]/(x-p,x-y)\\
+	&=\mathbb{Z}_p.
+	\end{align*}
 	\item [(iv)]
+		We write $\mathbb{Z}_p=\mathbb{Z}[[x]]/(x-p)$ and $\mathbb{Z}_\ell=\mathbb{Z}[[y]]/(y-\ell)$, then
+	\begin{align*}
+	\mathbb{Z}_p\otimes^{L\blacksquare}\mathbb{Z}_\ell 
+	&=\mathbb{Z}[[x]]/(x-p)\otimes^{L\blacksquare}\mathbb{Z}[[y]]/(y-\ell)\\
+	&=\mathbb{Z}[[x,y]]/(x-p,y-\ell).
+	\end{align*}
+	Since $p$ and $\ell$ are coprime, pick $a, b\in\mathbb{Z}$, s.t. $ap+b\ell =1$, then $a(p-x)+b(\ell-y)=1-ax-by$ is invertible in $\mathbb{Z}[[x,y]].$ Hence $(x-p,y-\ell)=\mathbb{Z}[[x,y]]$, i.e. $	\mathbb{Z}_p\otimes^{L\blacksquare}\mathbb{Z}_\ell =0.$
 \end{itemize}
 \qed
+
+
+
+
+
+
+
 
 
 
